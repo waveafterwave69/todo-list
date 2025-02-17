@@ -4,7 +4,7 @@ const addBtn = document.querySelector('.add-btn')
 const taskList = document.querySelector('.content-main-column')
 
 editTitlteBtn.addEventListener('click', function () {
-    let promptValue = prompt('Введите новое название.')
+    let promptValue = prompt('Введите новое название.').trim()
     if (promptValue) {
         if (promptValue.length < 15) {
             headerTitle.textContent = promptValue
@@ -26,7 +26,7 @@ function showTitle() {
 showTitle()
 
 function addTask() {
-    const listItemValue = prompt('Введите дело')
+    const listItemValue = prompt('Введите дело').trim()
     if (listItemValue) {
         let li = document.createElement('li')
         li.innerHTML = listItemValue
