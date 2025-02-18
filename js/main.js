@@ -116,7 +116,7 @@ function applyTheme(theme) {
         darkThemeBtn.classList.add('sun')
     } else {
         document.body.style.background = 'white'
-        document.querySelector('.dark-theme').style.background = '#DADADA'
+        document.querySelector('.dark-theme').style.background = '#ebebeb'
         document.querySelector('.dark-theme-img').src = './img/moon.png'
 
         document.querySelector('.content-header').style.background = '#FF4979'

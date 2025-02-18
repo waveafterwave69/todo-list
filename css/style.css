@@ -292,7 +292,7 @@ legend {
   }
   .dark-theme {
     background-color: #dadada;
-    padding: 15px;
+    padding: 13px;
   }
   .dark-theme-btn img {
     width: 50px;
@@ -333,14 +333,14 @@ legend {
   }
   .dark-theme {
     background-color: #dadada;
-    padding: 10px;
+    padding: 8px;
   }
   .dark-theme-btn img {
-    width: 40px;
+    width: 35px;
   }
 }
 .dark-theme {
-  background-color: #dadada;
+  background-color: #ebebeb;
   padding: 20px;
 }
 
