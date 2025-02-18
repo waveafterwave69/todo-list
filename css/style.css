@@ -8,7 +8,7 @@
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 :focus,
@@ -88,7 +88,7 @@ button,
 input[type=submit] {
   display: inline-block;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   background-color: transparent;
   background: none;
   cursor: pointer;
@@ -122,8 +122,8 @@ legend {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header {
@@ -138,7 +138,7 @@ legend {
   border-radius: 14px;
   width: 538px;
   height: 113px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   padding: 36px 5px;
 }
 
@@ -147,14 +147,14 @@ legend {
   display: -ms-flexbox;
   display: flex;
   -webkit-column-gap: 3px;
-  -moz-column-gap: 3px;
-  column-gap: 3px;
+     -moz-column-gap: 3px;
+          column-gap: 3px;
   -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .content-header-title {
@@ -185,32 +185,30 @@ legend {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   row-gap: 24px;
 }
-
 .content-main-column li {
   word-break: break-all;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-column-gap: 20px;
-  -moz-column-gap: 20px;
-  column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: "Montserrat", serif;
   font-weight: 300;
   font-style: italic;
   position: relative;
   cursor: pointer;
 }
-
 .content-main-column li::before {
   content: "";
   position: absolute;
@@ -222,12 +220,10 @@ legend {
   left: -51px;
   cursor: pointer;
 }
-
 .content-main-column li.checked {
   text-decoration: line-through;
   font-weight: 400;
 }
-
 .content-main-column li.checked::before {
   background-color: #fff;
 }
@@ -253,93 +249,101 @@ legend {
   left: 43%;
   border-radius: 21px;
 }
-
 .add-btn:hover {
   background-color: #3bce3b;
   color: rgb(235, 235, 235);
   -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+          transition-duration: 0.4s;
 }
 
 @media (max-width: 750px) {
   .header {
     margin-top: 75px;
   }
-
   .content-header {
     width: 410px;
     padding: 20px 5px;
     height: 75px;
   }
-
   .content-header-title {
     font-size: 40px;
   }
-
   .content-main {
     padding: 30px 70px;
     width: 410px;
   }
-
   .add-btn {
     font-size: 35px;
   }
-
   .content-main-column li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-column-gap: 15px;
-    -moz-column-gap: 15px;
-    column-gap: 15px;
+       -moz-column-gap: 15px;
+            column-gap: 15px;
     font-size: 32px;
   }
-
   .content-main-column li::before {
     height: 20px;
     width: 20px;
     top: 27%;
     left: -41px;
   }
+  .dark-theme {
+    background-color: #dadada;
+    padding: 15px;
+  }
+  .dark-theme-btn img {
+    width: 50px;
+  }
 }
-
 @media (max-width: 470px) {
   .header {
     margin-top: 45px;
   }
-
   .content-header {
     width: 340px;
     height: 60px;
   }
-
   .content-header-title {
     font-size: 29px;
   }
-
   .content-main {
     padding: 30px 50px;
     width: 340px;
   }
-
   .add-btn {
     font-size: 35px;
   }
-
   .content-main-column li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-column-gap: 15px;
-    -moz-column-gap: 15px;
-    column-gap: 15px;
+       -moz-column-gap: 15px;
+            column-gap: 15px;
     font-size: 28px;
   }
-
   .content-main-column li::before {
     height: 19px;
     width: 19px;
     top: 27%;
     left: -31px;
   }
+  .dark-theme {
+    background-color: #dadada;
+    padding: 10px;
+  }
+  .dark-theme-btn img {
+    width: 40px;
+  }
+}
+.dark-theme {
+  background-color: #dadada;
+  padding: 20px;
+}
+
+.dark-theme-btn img {
+  max-width: 60px;
 }
