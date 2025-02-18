@@ -137,5 +137,3 @@ function saveTheme() {
     }
 }
 saveTheme()
-
-let a = 5
