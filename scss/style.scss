@@ -251,6 +251,17 @@ $Montserrat: 'Montserrat', serif;
             left: -41px;
         }
     }
+    .dark-theme {
+        background-color: #dadada;
+        // max-width: 1920px;
+        padding: 15px;
+    }
+
+    .dark-theme-btn {
+        & img {
+            width: 50px;
+        }
+    }
 }
 
 @media (max-width: 470px) {
@@ -281,5 +292,28 @@ $Montserrat: 'Montserrat', serif;
             top: 27%;
             left: -31px;
         }
+    }
+    .dark-theme {
+        background-color: #dadada;
+        // max-width: 1920px;
+        padding: 10px;
+    }
+
+    .dark-theme-btn {
+        & img {
+            width: 40px;
+        }
+    }
+}
+
+.dark-theme {
+    background-color: #dadada;
+    // max-width: 1920px;
+    padding: 20px;
+}
+
+.dark-theme-btn {
+    & img {
+        max-width: 60px;
     }
 }
