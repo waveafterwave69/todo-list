@@ -35,7 +35,9 @@ function addTask() {
         let img = document.createElement('img')
         img.src = './img/close.png'
         li.appendChild(img)
+
         saveData()
+        li.setAttribute('data-aos', 'zoom-out')
     }
 }
 
@@ -73,7 +75,7 @@ function applyTheme(theme) {
 
         document.querySelector('.content-header').style.background = '#C62F57'
         document.querySelector('.add-btn').style.background = '#C62F57'
-        document.querySelector('.content-main').style.background = '#19122B'
+        document.querySelector('.content-main').style.background = '#342852'
 
         darkThemeBtn.classList.remove('moon')
         darkThemeBtn.classList.add('sun')
