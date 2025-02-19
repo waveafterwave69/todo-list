@@ -39,12 +39,22 @@
                 <div class="content-main">
                     <ul class="content-main-column">
                     </ul>
-                    <button class="add-btn" onclick="addTask()">+</button>
+                    <button class="add-btn">+</button>
                 </div>
             </div>
         </main>
+        <!-- <button id="myBtn">Открыть окно ввода</button> -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Введите дело</p>
+                <div class="flex">
+                    <input type="text" id="inputText" value="" class="input">
+                    <button class="btn-yes">Подтвердить</button>
+                </div>
 
-    </div>
+            </div>
+        </div>
     </div>
     <script src="./js/main.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

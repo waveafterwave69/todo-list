@@ -3,6 +3,52 @@ const headerTitle = document.querySelector('.content-header-title')
 const addBtn = document.querySelector('.add-btn')
 const taskList = document.querySelector('.content-main-column')
 const darkThemeBtn = document.querySelector('.dark-theme-btn')
+const modalWindow = document.querySelector('.modal')
+const closeBtn = document.querySelector('.close-modal')
+const overlay = document.querySelector('.overlay')
+const modal = document.getElementById('myModal')
+const span = document.getElementsByClassName('close')[0]
+const okBtn = document.getElementById('okBtn')
+const cancelBtn = document.getElementById('cancelBtn')
+const inputText = document.getElementById('inputText')
+const btnYes = document.querySelector('.btn-yes')
+
+addBtn.onclick = function () {
+    modal.style.display = 'block'
+    inputText.focus()
+}
+
+span.onclick = function () {
+    modal.style.display = 'none'
+    document.querySelector('.input').value = ''
+}
+
+btnYes.onclick = function () {
+    modal.style.display = 'none'
+}
+
+btnYes.addEventListener('click', function () {
+    const listItemValue = document.querySelector('.input').value
+    document.querySelector('.input').value = ''
+    if (listItemValue) {
+        let li = document.createElement('li')
+        li.innerHTML = listItemValue
+        taskList.appendChild(li)
+        let img = document.createElement('img')
+        img.src = './img/close.png'
+        li.appendChild(img)
+
+        saveData()
+        li.setAttribute('data-aos', 'zoom-out')
+    }
+})
+
+document.addEventListener('keydown', function (event) {
+    if (event.key == 'Escape' && !modalWindow.classList.contains('hidden')) {
+        modalWindow.classList.toggle('hidden')
+        overlay.classList.toggle('hidden')
+    }
+})
 
 editTitlteBtn.addEventListener('click', function () {
     let promptValue = prompt('Введите новое название.').trim()
@@ -25,21 +71,6 @@ function showTitle() {
 }
 
 showTitle()
-
-function addTask() {
-    const listItemValue = prompt('Введите дело').trim()
-    if (listItemValue) {
-        let li = document.createElement('li')
-        li.innerHTML = listItemValue
-        taskList.appendChild(li)
-        let img = document.createElement('img')
-        img.src = './img/close.png'
-        li.appendChild(img)
-
-        saveData()
-        li.setAttribute('data-aos', 'zoom-out')
-    }
-}
 
 taskList.addEventListener('click', function (event) {
     if (event.target.tagName === 'LI') {
