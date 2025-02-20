@@ -3,15 +3,47 @@ const headerTitle = document.querySelector('.content-header-title')
 const addBtn = document.querySelector('.add-btn')
 const taskList = document.querySelector('.content-main-column')
 const darkThemeBtn = document.querySelector('.dark-theme-btn')
+
 const modalWindow = document.querySelector('.modal')
 const closeBtn = document.querySelector('.close-modal')
-const overlay = document.querySelector('.overlay')
 const modal = document.getElementById('myModal')
 const span = document.getElementsByClassName('close')[0]
-const okBtn = document.getElementById('okBtn')
-const cancelBtn = document.getElementById('cancelBtn')
 const inputText = document.getElementById('inputText')
 const btnYes = document.querySelector('.btn-yes')
+
+const modalWindowTitle = document.querySelector('.title-modal')
+const closeBtnTitle = document.querySelector('.title-modal-close')
+const modalTitle = document.getElementById('myModalTitle')
+const spanTitle = document.getElementsByClassName('title-modal-close')[0]
+const inputTextTitle = document.getElementById('inputTextTitle')
+const btnYesTitle = document.querySelector('.title-modal-btn-yes')
+
+editTitlteBtn.onclick = function () {
+    modalTitle.style.display = 'block'
+    inputTextTitle.focus()
+}
+
+spanTitle.onclick = function () {
+    modalTitle.style.display = 'none'
+    document.querySelector('.title-modal-input').value = ''
+}
+
+btnYesTitle.onclick = function () {}
+
+btnYesTitle.addEventListener('click', function () {
+    let promptValue = document.querySelector('.title-modal-input').value
+    document.querySelector('.title-modal-input').value = ''
+    document.querySelector('.error').classList.add('hidden')
+    if (promptValue) {
+        if (promptValue.length < 15) {
+            headerTitle.textContent = promptValue
+            modalTitle.style.display = 'none'
+            saveTitle()
+        } else {
+            document.querySelector('.error').classList.remove('hidden')
+        }
+    }
+})
 
 addBtn.onclick = function () {
     modal.style.display = 'block'
@@ -40,25 +72,6 @@ btnYes.addEventListener('click', function () {
 
         saveData()
         li.setAttribute('data-aos', 'zoom-out')
-    }
-})
-
-document.addEventListener('keydown', function (event) {
-    if (event.key == 'Escape' && !modalWindow.classList.contains('hidden')) {
-        modalWindow.classList.toggle('hidden')
-        overlay.classList.toggle('hidden')
-    }
-})
-
-editTitlteBtn.addEventListener('click', function () {
-    let promptValue = prompt('Введите новое название.').trim()
-    if (promptValue) {
-        if (promptValue.length < 15) {
-            headerTitle.textContent = promptValue
-            saveTitle()
-        } else {
-            alert('Слишком много текста!')
-        }
     }
 })
 

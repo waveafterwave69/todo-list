@@ -43,7 +43,17 @@
                 </div>
             </div>
         </main>
-        <!-- <button id="myBtn">Открыть окно ввода</button> -->
+        <div id="myModalTitle" class="title-modal">
+            <div class="title-modal-content">
+                <span class="title-modal-close">&times;</span>
+                <p>Введите новое название</p>
+                <p class="error hidden">Слишком много текста!</p>
+                <div class="flex">
+                    <input type="text" id="inputTextTitle" value="" class="title-modal-input">
+                    <button class="title-modal-btn-yes">Подтвердить</button>
+                </div>
+            </div>
+        </div>
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -52,7 +62,6 @@
                     <input type="text" id="inputText" value="" class="input">
                     <button class="btn-yes">Подтвердить</button>
                 </div>
-
             </div>
         </div>
     </div>

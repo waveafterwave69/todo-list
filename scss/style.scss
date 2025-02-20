@@ -248,7 +248,23 @@ $Montserrat: 'Montserrat', serif;
     background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
 }
 
-.modal-content {
+.title-modal {
+    font-family: $Montserrat;
+    font-size: 24px;
+    font-weight: 600;
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    z-index: 1; /* Поверх всего */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ширина во весь экран */
+    height: 100%; /* Высота во весь экран */
+    overflow: auto; /* Включаем прокрутку, если контент не помещается */
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+}
+
+.modal-content,
+.title-modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* Центрируем по вертикали и горизонтали */
     padding: 20px;
@@ -257,7 +273,8 @@ $Montserrat: 'Montserrat', serif;
     max-width: 600px; /* Максимальная ширина */
 }
 
-.close {
+.close,
+.title-modal-close {
     color: #646464;
     float: right;
     font-size: 28px;
@@ -265,11 +282,14 @@ $Montserrat: 'Montserrat', serif;
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.title-modal-close:hover,
+.title-modal-close:focus {
     cursor: pointer;
 }
 
-.input {
+.input,
+.title-modal-input {
     background-color: rgb(226, 226, 226);
     width: 100%;
     font-size: 22px;
@@ -286,11 +306,22 @@ $Montserrat: 'Montserrat', serif;
     row-gap: 10px;
 }
 
-.btn-yes {
+.btn-yes,
+.title-modal-btn-yes {
     width: 100%;
     background-color: rgb(226, 226, 226);
     padding: 8px 10px;
     font-size: 22px;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+    font-size: 20px;
 }
 
 @media (max-width: 750px) {
