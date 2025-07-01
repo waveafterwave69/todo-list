@@ -427,7 +427,27 @@ legend {
   }
   .btn-yes {
     background-color: rgb(226, 226, 226);
-    padding: 8px 10px;
+    padding: 8px 13px;
+  }
+  .title-modal-close {
+    width: 17px;
+    position: relative;
+    top: -7px;
+  }
+  .title-modal-input,
+  .title-modal-btn-yes,
+  .input,
+  .btn-yes {
+    font-size: 20px;
+  }
+  .modal-content,
+  .title-modal-content {
+    padding: 10px;
+    max-width: 500px;
+  }
+  .title-modal-content p,
+  .modal-content p {
+    font-size: 18px;
   }
 }
 @media (max-width: 470px) {

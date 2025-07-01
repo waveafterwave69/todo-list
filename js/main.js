@@ -28,8 +28,6 @@ spanTitle.onclick = function () {
     document.querySelector('.title-modal-input').value = ''
 }
 
-btnYesTitle.onclick = function () {}
-
 btnYesTitle.addEventListener('click', function () {
     let promptValue = document.querySelector('.title-modal-input').value
     document.querySelector('.title-modal-input').value = ''
@@ -45,19 +43,52 @@ btnYesTitle.addEventListener('click', function () {
     }
 })
 
-addBtn.onclick = function () {
+addBtn.addEventListener('click', function () {
     modal.style.display = 'block'
     inputText.focus()
-}
+})
 
-span.onclick = function () {
+span.addEventListener('click', function () {
     modal.style.display = 'none'
     document.querySelector('.input').value = ''
+})
+
+function handleEvent1(e) {
+    if (e.type === 'click' || (e.type === 'keydown' && e.key === 'Enter')) {
+        const listItemValue = document.querySelector('.input').value
+        document.querySelector('.input').value = ''
+        if (listItemValue) {
+            let li = document.createElement('li')
+            li.innerHTML = listItemValue
+            taskList.appendChild(li)
+            let img = document.createElement('img')
+            img.src = './img/close.png'
+            li.appendChild(img)
+            saveData()
+            li.setAttribute('data-aos', 'zoom-out')
+        }
+        modal.style.display = 'none'
+    }
+}
+function handleEvent2(e) {
+    if (e.type === 'click' || (e.type === 'keydown' && e.key === 'Enter')) {
+        let promptValue = document.querySelector('.title-modal-input').value
+        document.querySelector('.title-modal-input').value = ''
+        document.querySelector('.error').classList.add('hidden')
+        if (promptValue) {
+            if (promptValue.length < 15) {
+                headerTitle.textContent = promptValue
+                modalTitle.style.display = 'none'
+                saveTitle()
+            } else {
+                document.querySelector('.error').classList.remove('hidden')
+            }
+        }
+    }
 }
 
-btnYes.onclick = function () {
-    modal.style.display = 'none'
-}
+inputText.addEventListener('keydown', handleEvent1)
+inputTextTitle.addEventListener('keydown', handleEvent2)
 
 btnYes.addEventListener('click', function () {
     const listItemValue = document.querySelector('.input').value
@@ -73,6 +104,7 @@ btnYes.addEventListener('click', function () {
         saveData()
         li.setAttribute('data-aos', 'zoom-out')
     }
+    modal.style.display = 'none'
 })
 
 function saveTitle() {
