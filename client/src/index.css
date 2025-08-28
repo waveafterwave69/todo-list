@@ -1,0 +1,4 @@
+@import url('./styles/variables.css');
+@import url('./styles/globals.css');
+@import "tailwindcss";
+@import url('./styles/normalize.css');

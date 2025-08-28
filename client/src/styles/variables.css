@@ -1,0 +1,11 @@
+:root {
+    --container-width: 1420px;
+    --container-padding-x: 24px;
+    --container-padding-mobile-x: 16px;
+
+    --font-family: 'Inter', sans-serif;
+
+    --color-white: #ffffff;
+
+    --transition-duration: 0.2s;
+}

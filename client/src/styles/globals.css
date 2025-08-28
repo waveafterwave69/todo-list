@@ -1,0 +1,45 @@
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #131313;
+    color: #fff;
+}
+
+.container {
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding-x);
+    margin: 0 auto;
+}
+
+:focus-visible,
+a:focus-visible {
+    outline: auto;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 0 var(--container-padding-mobile-x);
+    }
+}
