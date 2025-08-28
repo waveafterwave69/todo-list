@@ -3,6 +3,14 @@ import axios from 'axios'
 import { API_BASE_URL } from '../../api/api'
 import type { AuthState, AuthData } from '../../types/types'
 
+interface ServerItem {
+    completed: boolean
+    createdAt: string
+    id: number
+    title: string
+    userId: number
+}
+
 const initialState: AuthState = {
     isAuthenticated: false,
     user: null,
@@ -12,7 +20,7 @@ const initialState: AuthState = {
     error: null,
 }
 
-export const register = createAsyncThunk(
+export const register: any | ServerItem[] = createAsyncThunk(
     'auth/register',
     async (authData: AuthData, { rejectWithValue }) => {
         try {
@@ -20,6 +28,7 @@ export const register = createAsyncThunk(
                 `${API_BASE_URL}/auth/register`,
                 authData
             )
+            console.log(response.data)
             return response.data
         } catch (err: any) {
             return rejectWithValue(err.response.data)
@@ -27,7 +36,7 @@ export const register = createAsyncThunk(
     }
 )
 
-export const login = createAsyncThunk(
+export const login: any | ServerItem[] = createAsyncThunk(
     'auth/login',
     async (authData: AuthData, { rejectWithValue }) => {
         try {
