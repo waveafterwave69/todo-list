@@ -83,7 +83,7 @@ export const refresh = createAsyncThunk(
     }
 )
 
-export const checkAuth = createAsyncThunk(
+export const checkAuth: any = createAsyncThunk(
     'auth/checkAuth',
     async (_, { dispatch, rejectWithValue }) => {
         const accessToken = localStorage.getItem('accessToken')
