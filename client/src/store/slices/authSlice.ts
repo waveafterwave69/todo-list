@@ -12,7 +12,7 @@ const initialState: AuthState = {
     error: null,
 }
 
-export const register: any = createAsyncThunk(
+export const register = createAsyncThunk(
     'auth/register',
     async (authData: AuthData, { rejectWithValue }) => {
         try {
@@ -22,17 +22,12 @@ export const register: any = createAsyncThunk(
             )
             return response.data
         } catch (err: any) {
-            console.error('Register error:', err)
-            if (err.response) {
-                return rejectWithValue(err.response.data)
-            } else {
-                return rejectWithValue({ message: 'Ошибка сети или сервера' })
-            }
+            return rejectWithValue(err.response.data)
         }
     }
 )
 
-export const login: any = createAsyncThunk(
+export const login = createAsyncThunk(
     'auth/login',
     async (authData: AuthData, { rejectWithValue }) => {
         try {
@@ -47,12 +42,7 @@ export const login: any = createAsyncThunk(
 
             return { accessToken, refreshToken, user }
         } catch (err: any) {
-            console.error('Login error:', err)
-            if (err.response) {
-                return rejectWithValue(err.response.data)
-            } else {
-                return rejectWithValue({ message: 'Ошибка сети или сервера' })
-            }
+            return rejectWithValue(err.response.data)
         }
     }
 )
@@ -70,7 +60,6 @@ export const refresh = createAsyncThunk(
             const response = await axios.post(`${API_BASE_URL}/auth/refresh`, {
                 refreshToken,
             })
-
             const { accessToken, refreshToken: newRefreshToken } = response.data
 
             localStorage.setItem('accessToken', accessToken)
@@ -78,14 +67,14 @@ export const refresh = createAsyncThunk(
 
             return { accessToken, refreshToken: newRefreshToken }
         } catch (err: any) {
-            // localStorage.removeItem('accessToken')
-            // localStorage.removeItem('refreshToken')
+            localStorage.removeItem('accessToken')
+            localStorage.removeItem('refreshToken')
             return rejectWithValue(err.response.data)
         }
     }
 )
 
-export const checkAuth: any = createAsyncThunk(
+export const checkAuth = createAsyncThunk(
     'auth/checkAuth',
     async (_, { dispatch, rejectWithValue }) => {
         const accessToken = localStorage.getItem('accessToken')
