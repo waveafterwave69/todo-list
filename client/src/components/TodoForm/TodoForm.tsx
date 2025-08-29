@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { createTodo } from '../../store/slices/todoSlice'
+import { useAppDispatch } from '../../hooks/dispatchAndSelector'
 
 const TodoForm: React.FC = () => {
     const [title, setTitle] = useState('')
     const [error, setError] = useState('')
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()

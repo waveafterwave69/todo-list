@@ -1,17 +1,12 @@
-// client/src/components/TodoList.tsx
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
 import type { Todo } from '../../types/types'
 import TodoForm from '../TodoForm/TodoForm'
 import TodoItem from '../TodoItem/TodoItem'
-import type { RootState } from '../../store/store'
-
 import spinner from '../../assets/download.svg'
+import { useAppSelector } from '../../hooks/dispatchAndSelector'
 
 const TodoList: React.FC = () => {
-    const { todos, loading, error } = useSelector(
-        (state: RootState) => state.todos
-    )
+    const { todos, loading, error } = useAppSelector((state) => state.todos)
     const [filter, setFilter] = useState('all')
 
     let filteredTodos: Todo[] = [...todos]

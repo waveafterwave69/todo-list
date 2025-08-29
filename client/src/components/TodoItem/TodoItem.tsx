@@ -1,14 +1,14 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { updateTodo, deleteTodo } from '../../store/slices/todoSlice'
 import type { Todo } from '../../types/types'
+import { useAppDispatch } from '../../hooks/dispatchAndSelector'
 
 interface TodoItemProps {
     todo: Todo
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const handleToggle = async () => {
         try {

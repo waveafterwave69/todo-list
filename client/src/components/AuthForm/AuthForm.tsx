@@ -1,47 +1,30 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import { login, register } from '../../store/slices/authSlice'
+import { Link } from 'react-router-dom'
 import type { AuthType } from '../../types/types'
+import useAuth from '../../hooks/useAuth'
 
 interface AuthFormProps {
     type: AuthType
 }
 
 const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-
-        if (!username || !password) {
-            setError('Имя пользователя и пароль обязательны.')
-            return
-        }
-
-        try {
-            if (type === 'login') {
-                await dispatch(login({ username, password }))
-                navigate('/todos')
-            } else {
-                await dispatch(register({ username, password }))
-                navigate('/login')
-            }
-        } catch (error: any) {
-            console.error('Ошибка авторизации:', error)
-        }
-    }
+    const {
+        setUsername,
+        setPassword,
+        isError,
+        setIsError,
+        handleSubmit,
+        password,
+        username,
+    } = useAuth(type)
 
     return (
         <div className="mt-15 max-w-3xl flex flex-col justify-center text-center my-0 mx-auto">
             <h2 className="mb-8 text-4xl font-semibold">
                 {type === 'login' ? 'Вход' : 'Регистрация'}
             </h2>
-            {error && <p className="text-red-500 text-lg mb-3">{error}</p>}
+            {isError && (
+                <p className="text-red-500 text-lg mb-3">Ошибка: {isError}</p>
+            )}
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <input
                     type="text"
@@ -49,7 +32,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                     value={username}
                     onChange={(e) => {
                         setUsername(e.target.value)
-                        setError('')
+                        setIsError('')
                     }}
                     className="border font-normal text-lg rounded py-3 px-4 text-gray-100 focus:text-white"
                 />
@@ -59,7 +42,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
                     value={password}
                     onChange={(e) => {
                         setPassword(e.target.value)
-                        setError('')
+                        setIsError('')
                     }}
                     className="border text-lg font-normal rounded py-3 px-4 text-gray-100 focus:text-white"
                 />

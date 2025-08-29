@@ -1,17 +1,14 @@
 import { Route, Routes, useNavigate } from 'react-router'
 import { routesConfig } from './routes/routesConfig'
 import type { IRoutes } from './types/types'
-import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchTodos } from './store/slices/todoSlice'
-import type { RootState } from './store/store'
 import { checkAuth } from './store/slices/authSlice'
+import { useAppDispatch, useAppSelector } from './hooks/dispatchAndSelector'
 
 const App: React.FC = () => {
-    const { isAuthenticated, user } = useSelector(
-        (state: RootState) => state.auth
-    )
-    const dispatch = useDispatch()
+    const { isAuthenticated, user } = useAppSelector((state) => state.auth)
+    const dispatch = useAppDispatch()
 
     const navigate = useNavigate()
 
